@@ -33,3 +33,19 @@ Route::get('/service/{service_id}/{service_name?}',function($service_id,$service
 return "service".$service_id." ".$service_name;
 
 })->name('service');
+
+
+
+
+
+// Route::get('/user/{name}/{id}',function($name,$id){
+
+//     echo $name." ".$id ;
+// })->where(['name'=>'[A-Za-z]+','id'=>'[0-9]+']);
+
+
+Route::get('/user/{name}',function($name){
+
+    echo $name;
+})->whereIn('name',['ahsan','jun','Tajrian']);
+
