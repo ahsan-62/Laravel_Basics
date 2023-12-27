@@ -28,8 +28,8 @@ return view('contact');
 
 })->name('contact');
 
-Route::get('/service/{service_id}',function($service_id){
+Route::get('/service/{service_id}/{service_name?}',function($service_id,$service_name=null){
 
-return view('service');
+return "service".$service_id." ".$service_name;
 
 })->name('service');
