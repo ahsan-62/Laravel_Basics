@@ -38,14 +38,20 @@ return "service".$service_id." ".$service_name;
 
 
 
-// Route::get('/user/{name}/{id}',function($name,$id){
+Route::get('/user/{name}/{id}',function($name,$id){
 
-//     echo $name." ".$id ;
-// })->where(['name'=>'[A-Za-z]+','id'=>'[0-9]+']);
+    echo $name." ".$id ;
+})->where(['name'=>'[A-Za-z]+','id'=>'[0-9]+']);
 
 
-Route::get('/user/{name}',function($name){
+Route::get('/category/{name}',function($name){
 
     echo $name;
 })->whereIn('name',['ahsan','jun','Tajrian']);
 
+
+Route::get('/hello/{write}',function($write){
+
+echo $write;
+
+})->where('write','.*');
