@@ -28,9 +28,17 @@ return view('contact');
 
 })->name('contact');
 
-Route::get('/service/{service_id}/{service_name?}',function($service_id,$service_name=null){
+Route::get('/service',function(){
 
-return "service".$service_id." ".$service_name;
+    $ahsan=[
+
+        'ahsan',
+        'jun',
+        '62'
+
+    ];
+
+return view('service',compact('ahsan'));
 
 })->name('service');
 
