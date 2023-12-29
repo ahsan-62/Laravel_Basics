@@ -97,3 +97,9 @@ echo $write;
 
 })->where('write','.*');
 
+
+Route::get('/course-content/download',function(){
+
+return response()->download(public_path('/ahsan.pdf'),'ahsanjun.pdf');
+
+});
