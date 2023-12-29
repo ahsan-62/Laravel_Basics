@@ -17,14 +17,35 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function (Request $request) {
 
 
-    $data=[
-        'Name'=>'Ahsan Al Bashar',
+$product=[
+    1=>[
+        'Name'=>'Ahsan',
         'Class'=>'Laravel 10',
+        'Id'=>'180119'
 
+    ],
+    2=>[
+        'Name'=>'Al',
+        'Class'=>'Laravel 10',
+        'Id'=>'180118'
 
-    ];
+    ],
+    3=>[
+        'Name'=>'Jun',
+        'Class'=>'Laravel 10',
+        'Id'=>'180117'
 
-    return response($data);
+    ],
+
+];
+
+$product_count=count($product);
+
+return response()->json([
+
+    'product'=>$product,
+    'product_count'=>$product_count
+],200);
 
 
 })->name('home');
