@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+
+            dd(
+
+                $request->fullUrl(),
+                $request->is('/'),
+              );
+
+
     return view('home');
 })->name('home');
 
@@ -63,3 +72,4 @@ Route::get('/hello/{write}',function($write){
 echo $write;
 
 })->where('write','.*');
+
