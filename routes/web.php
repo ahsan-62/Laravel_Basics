@@ -16,14 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (Request $request) {
 
-            dd(
 
-                $request->fullUrl(),
-                $request->is('/'),
-              );
+    $data=[
+        'Name'=>'Ahsan Al Bashar',
+        'Class'=>'Laravel 10',
 
 
-    return view('home');
+    ];
+
+    return response($data);
+
+
 })->name('home');
 
 Route::get('/about',function(){
