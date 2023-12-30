@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (Request $request) {
 
+dd($request->search);
+
 
 $product=[
     1=>[
@@ -103,3 +105,22 @@ Route::get('/course-content/download',function(){
 return response()->download(public_path('/ahsan.pdf'),'ahsanjun.pdf');
 
 });
+
+
+
+Route::prefix('admin')->name('admin.')->group(function(){
+
+
+
+
+
+});
+
+
+Route::prefix('admin')->name('page.')->group(function(){
+
+
+
+
+});
+
