@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -110,17 +111,8 @@ return response()->download(public_path('/ahsan.pdf'),'ahsanjun.pdf');
 
 Route::prefix('admin')->name('admin.')->group(function(){
 
-
-
-
-
 });
 
 
-Route::prefix('admin')->name('page.')->group(function(){
 
-
-
-
-});
-
+Route::get('/send-me-details',UserInfo::class)->name('send-details');
