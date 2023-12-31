@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -116,3 +117,5 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
 
 Route::get('/send-me-details',UserInfo::class)->name('send-details');
+
+Route::resource('/all',PostController::class);
