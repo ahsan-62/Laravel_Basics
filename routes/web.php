@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserInfo;
 use Illuminate\Http\Request;
@@ -16,7 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (Request $request) {
+
+Route::get('/',function(){
+
+return view('home');
+
+})->name('home');
+
+Route::get('/aaaa', function (Request $request) {
 
 dd($request->search);
 
@@ -52,7 +60,7 @@ return response()->json([
 ],200);
 
 
-})->name('home');
+})->name('name');
 
 Route::get('/about',function(){
 
@@ -119,3 +127,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
 Route::get('/send-me-details',UserInfo::class)->name('send-details');
 
 Route::resource('/all',PostController::class);
+
+
+Route::resource('/category',CategoryController::class);
