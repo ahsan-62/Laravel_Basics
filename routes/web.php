@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UserInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -130,3 +131,4 @@ Route::resource('/all',PostController::class);
 
 
 Route::resource('/category',CategoryController::class);
+Route::resource('/sub-category',SubCategoryController::class);

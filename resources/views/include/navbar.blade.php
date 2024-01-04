@@ -19,7 +19,10 @@
             <a class="nav-link" href="{{ route('service') }}">Service</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('category.create') }}">Category</a>
+            <a class="nav-link" href="{{ route('category.index') }}">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('sub-category.index') }}">Subcategory</a>
           </li>
         </ul>
       </div>
