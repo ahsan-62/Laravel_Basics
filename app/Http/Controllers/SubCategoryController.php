@@ -7,6 +7,7 @@ use App\Models\SubCategory;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\SubCategoryRequest;
+use App\Http\Requests\SubCategoryUpdateRequest;
 use Illuminate\Support\Facades\Session;
 
 class SubCategoryController extends Controller
@@ -65,15 +66,36 @@ class SubCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories=Category::all();
+        $subcategories=SubCategory::find($id);
+        return view('subcategory.edit',compact('categories','subcategories'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(SubCategoryUpdateRequest $request, string $id)
     {
-        //
+
+        $subcategory=SubCategory::find($id);
+
+        $subcategory->update([
+
+            'category_id'=>$request->category_id,
+            'name'=>$request->subcategory_name,
+            'slug'=>Str::slug($request->subcategory_name),
+            'is_active'=>$request->filled('is_active')
+
+
+        ]);
+
+        Session::flash('status','Subcategory Updated Successfully');
+
+        return redirect()->route('sub-category.index');
+
+
+
     }
 
     /**
@@ -81,6 +103,14 @@ class SubCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
+    // dd($id);
+
+    SubCategory::find($id)->delete();
+
+    Session::flash('status','Subcategory Deleted Succesfully');
+
+    return redirect()->route('sub-category.index');
+
     }
 }
